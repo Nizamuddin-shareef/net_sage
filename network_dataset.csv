@@ -1,0 +1,31 @@
+case_id,symptom,root_cause,osi_layer,concept_tag,severity,evidence,solution
+NS001,Device has incorrect IP address,Incorrect static IP configuration,Layer 3,IP addressing,Medium,ipconfig shows incorrect IP,Correct IP address and subnet mask
+NS002,PC cannot reach remote network,Incorrect default gateway,Layer 3,Routing,High,ipconfig shows incorrect gateway,Set correct default gateway
+NS003,Devices in VLAN cannot communicate,Incorrect VLAN assignment,Layer 2,VLAN,High,Switch port assigned to wrong VLAN,Assign port to correct VLAN
+NS004,PC receives APIPA address,DHCP server unavailable,Layer 3,DHCP,High,IP address begins with 169.254,Restore DHCP service or connectivity
+NS005,PC cannot obtain DHCP lease,DHCP pool exhausted,Layer 3,DHCP,High,DHCP pool has no free leases,Expand DHCP pool
+NS006,Clients cannot resolve domain names,Incorrect DNS server configuration,Layer 7,DNS,High,IP connectivity works but name resolution fails,Configure correct DNS server
+NS007,Domain resolves to incorrect address,Incorrect DNS record,Layer 7,DNS,Medium,nslookup returns unexpected IP,Correct DNS record
+NS008,Router cannot reach remote network,Missing route,Layer 3,Routing,High,show ip route lacks destination route,Add correct route
+NS009,Remote network unreachable,Incorrect static route next hop,Layer 3,Routing,High,Static route uses incorrect next hop,Correct static route
+NS010,Routing between VLANs fails,Inter VLAN routing not configured,Layer 3,Inter VLAN routing,High,Hosts in separate VLANs cannot communicate,Configure router or Layer 3 switch routing
+NS011,Switch ports are inactive,Interface administratively down,Layer 1,Interface,Medium,show interfaces shows administratively down,Enable interface using no shutdown
+NS012,Link is not established,Cable or physical connection problem,Layer 1,Physical connectivity,High,Interface shows down down,Check cable and physical connection
+NS013,Network connection unstable,Duplex mismatch,Layer 2,Duplex,Medium,Interface errors or collisions,Match duplex settings
+NS014,Switch port rejects device,Port security violation,Layer 2,Port security,High,show port security shows violation,Review and correct port security settings
+NS015,Trunk does not carry VLAN traffic,Incorrect trunk configuration,Layer 2,Trunking,High,show interfaces trunk excludes VLAN,Configure trunk and allowed VLANs
+NS016,VLAN traffic blocked across trunk,VLAN missing from allowed list,Layer 2,VLAN trunking,High,Allowed VLAN list excludes required VLAN,Add VLAN to allowed list
+NS017,Duplicate IP warning,Duplicate IP address assigned,Layer 3,IP addressing,High,Duplicate IP detected or ARP conflict,Assign unique IP addresses
+NS018,Host cannot communicate with subnet,Incorrect subnet mask,Layer 3,Subnetting,High,Host subnet differs from intended subnet,Correct subnet mask
+NS019,Router interface cannot reach peers,Incorrect interface IP configuration,Layer 3,IP addressing,High,Interface address or mask incorrect,Correct interface IP and mask
+NS020,Outbound traffic fails,ACL blocks required traffic,Layer 3,ACL,High,ACL counters show matching deny entries,Modify ACL rules appropriately
+NS021,Network service inaccessible,ACL denies required protocol,Layer 4,ACL,High,Traffic blocked by ACL protocol or port,Permit required protocol and port
+NS022,Internal hosts cannot access internet,NAT not configured,Layer 3,NAT,High,Private source IPs not translated,Configure NAT
+NS023,Some internal devices cannot access internet,NAT ACL excludes subnet,Layer 3,NAT,High,NAT translation missing for subnet,Correct NAT ACL
+NS024,Internet access fails after NAT change,Incorrect NAT inside or outside interface,Layer 3,NAT,High,NAT interfaces incorrectly assigned,Correct NAT interface roles
+NS025,Wireless client cannot connect,Incorrect WiFi password,Layer 2,Wireless,Medium,Authentication fails,Use correct wireless credentials
+NS026,Wireless client connects but cannot access network,Wireless VLAN mismatch,Layer 2,Wireless VLAN,High,Wireless client assigned to incorrect VLAN,Correct wireless VLAN mapping
+NS027,Wireless signal weak,Wireless interference or poor coverage,Layer 1,Wireless,Medium,Weak signal or unstable connection,Improve access point placement
+NS028,Wireless clients cannot obtain IP,DHCP unavailable on wireless VLAN,Layer 3,Wireless DHCP,High,Wireless clients have APIPA addresses,Restore DHCP service for wireless VLAN
+NS029,Network connection is slow,High bandwidth utilization or congestion,Layer 4,Network performance,Medium,High interface utilization,Identify and reduce congestion
+NS030,Remote management unavailable,SSH configuration or access restriction problem,Layer 7,Remote management,Medium,SSH connection fails,Check SSH configuration and access rules
